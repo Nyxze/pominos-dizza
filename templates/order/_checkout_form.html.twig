@@ -1,0 +1,4 @@
+<form method="post" action="{{ path('app_order_checkout', {'id': order.id}) }}" onsubmit="return confirm('Are you sure you want to valid this order?');">
+    <input type="hidden" name="_token" value="{{ csrf_token('checkout' ~ order.id) }}">
+    <button class="btn">Valider</button>
+</form>

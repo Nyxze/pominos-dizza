@@ -19,7 +19,6 @@ security:
             security: false
 
         main:
-            security: false
             lazy: true
             provider: app_user_provider
             access_denied_handler: App\Security\AccessDeniedHandler

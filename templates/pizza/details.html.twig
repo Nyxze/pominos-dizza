@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pizza{% endblock %}
+
+{% block body %}
+<div class="col-md-8">
+<h1> {{ pizza.name }}</h1>
+    <h1> {{ pizza.price }}</h1>
+    {{ form_start(form,{'attr':{'class':'mt-4 p-4 bg-light'}} ) }}
+  <div class="form-group">
+{{ form_label(form.quantity) }}
+      {{ form_widget(form.quantity,
+          { 'attr':{
+              'class':'form-control' ~ (form.quantity.vars.valid ?'':'is-invalid')
+          }
+          }
+      ) }}
+      <div class="invalid-feedback">
+          {{ form_errors(form.quantity) }}
+      </div>
+
+      {{ form_widget(form.add) }}
+      {{ form_end(form) }}
+  </div>
+
+
+
+    <a href="{{ path('app_pizza_list') }}">back to list</a>
+
+    </div>
+{% endblock %}

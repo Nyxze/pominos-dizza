@@ -30,9 +30,9 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_topping_index') }}">back to list</a>
+    <a href="{{ path('') }}">back to list</a>
 
-    <a href="{{ path('app_topping_edit', {'id': topping.id}) }}">edit</a>
+    <a href="{{ path('admin_topping_edit', {'id': topping.id}) }}">edit</a>
 
-    {{ include('topping/_delete_form.html.twig') }}
+    {{ include('admin/topping/_delete_form.html.twig') }}
 {% endblock %}

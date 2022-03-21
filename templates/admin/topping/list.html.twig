@@ -25,8 +25,8 @@
                 <td>{{ topping.isVegan ? 'Yes' : 'No' }}</td>
                 <td>{{ topping.isVeggy ? 'Yes' : 'No' }}</td>
                 <td>
-                    <a href="{{ path('app_topping_show', {'id': topping.id}) }}">show</a>
-                    <a href="{{ path('app_topping_edit', {'id': topping.id}) }}">edit</a>
+                    <a href="{{ path('admin_topping_show', {'id': topping.id}) }}">show</a>
+                    <a href="{{ path('admin_topping_edit', {'id': topping.id}) }}">edit</a>
                 </td>
             </tr>
         {% else %}
@@ -37,5 +37,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_topping_new') }}">Create new</a>
+    <a href="{{ path('admin_topping_new') }}">Create new</a>
 {% endblock %}

@@ -7,12 +7,13 @@
 
     <table class="table">
         <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Ingrédients</th>
-                <th>actions</th>
-            </tr>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Ingrédients</th>
+            <th>Price</th>
+            <th>actions</th>
+        </tr>
         </thead>
         <tbody>
         {% for pizza in pizzas %}
@@ -20,13 +21,16 @@
                 <td>{{ pizza.id }}</td>
                 <td>{{ pizza.name }}</td>
                 <td>
-                {% for toppings in pizza.toppings %}
-               {{ toppings.name }},
-                {% endfor %}
+                    {% for toppings in pizza.toppings %}
+                        {{ toppings.name }},
+                    {% endfor %}
                 </td>
                 <td>
-                    <a href="{{ path('app_pizza_show', {'id': pizza.id}) }}">show</a>
-                    <a href="{{ path('app_pizza_edit', {'id': pizza.id}) }}">edit</a>
+                    {{ pizza.price }}
+                </td>
+                <td>
+                    <a href="{{ path('app_pizza_details', {'id': pizza.id}) }}">Détails</a>
+                    <a href="{{ path('app_pizza_add', {'id': pizza.id}) }}">Ajouter au pannier</a>
                 </td>
             </tr>
         {% else %}
@@ -37,5 +41,5 @@
         </tbody>
     </table>
 
-    <a href="{{ path('app_pizza_new') }}">Create new</a>
+    <a href="{{ path('admin_pizza_new') }}">Create new</a>
 {% endblock %}

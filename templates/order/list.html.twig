@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Order list{% endblock %}
+
+{% block body %}
+    <h1>Order list</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Passé le</th>
+            <th>Pizza</th>
+            <th>Quantity</th>
+            <th>Status</th>
+            <th>Price (Euros)</th>
+            <th>Total(Euros)</th>
+            <th>actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for order in orderList %}
+            <tr>
+
+
+                <td>{{ order.createdAt |date }}</td>
+
+
+
+                    <td>
+                        {% for item in order.items %}
+                        {{ item.pizza.name }} <br>
+                        {% endfor  %}
+                    </td>
+
+                <td>
+                    {% for item in order.items %}
+                        {{ item.quantity }} <br>
+                    {% endfor  %}
+                </td>
+                <td>
+                    {{ order.status }}
+                </td>
+
+                <td>
+                    {% for item in order.items %}
+                        {{ item.total }}  <br>
+                    {% endfor  %}</td>
+
+                <td>
+                    {{ order.total }}
+                </td>
+                <td>
+
+                    {{ include('order/_checkout_form.html.twig') }}
+
+                </td>
+                <td>
+                {{ include('order/_delete_form.html.twig') }}
+
+                </td>
+            </tr>
+
+
+
+        {% else %}
+
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+
+
+        {% endfor %}
+        </tbody>
+    </table>
+
+{% endblock %}

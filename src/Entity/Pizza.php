@@ -101,4 +101,14 @@ class Pizza
 
         return $this;
     }
+
+    public function getPrice()
+    {
+        $total = 0;
+
+        foreach ($this->getToppings() as $topping){
+            $total += $topping->getPrice();
+        }
+        return $total;
+    }
 }

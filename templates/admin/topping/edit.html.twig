@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Topping{% endblock %}
+
+{% block body %}
+    <h1>Edit Topping</h1>
+
+    {{ include('admin/topping/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('admin_pizza_list') }}">back to list</a>
+
+    {{ include('admin/topping/_delete_form.html.twig') }}
+{% endblock %}

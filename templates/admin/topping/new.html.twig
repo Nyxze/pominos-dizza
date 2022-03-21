@@ -5,7 +5,7 @@
 {% block body %}
     <h1>Create new Topping</h1>
 
-    {{ include('topping/_form.html.twig') }}
+    {{ include('admin/topping/_form.html.twig') }}
 
-    <a href="{{ path('app_topping_index') }}">back to list</a>
+    <a href="{{ path('admin_topping_list') }}">back to list</a>
 {% endblock %}
