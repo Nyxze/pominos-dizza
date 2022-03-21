@@ -1,0 +1,31 @@
+{% block body %}
+    <div class="col-md-8">
+
+
+        {{ form_start(form) }}
+        {{ form_row(form.name) }}
+        {{ form_row(form.base) }}
+        {{ form_row(form.size) }}
+
+
+
+        <div>
+            <h3>Toppings List</h3>
+            <div class="d-flex justify-content-end">
+                <button type="button" id="btnAddItem" class="btn btn-primary">
+                    Ajouter un élément
+                </button>
+            </div>
+            {{ form_row(form.toppings) }}
+        </div>
+
+
+
+
+        <button class="btn">{{ button_label|default('Save') }}</button>
+
+        {{ form_end(form) }}
+    </div>
+
+    {{ encore_entry_script_tags('pizza.form') }}
+{% endblock %}

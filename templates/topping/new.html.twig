@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Topping{% endblock %}
+
+{% block body %}
+    <h1>Create new Topping</h1>
+
+    {{ include('topping/_form.html.twig') }}
+
+    <a href="{{ path('app_topping_index') }}">back to list</a>
+{% endblock %}

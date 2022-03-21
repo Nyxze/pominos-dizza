@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Topping index{% endblock %}
+
+{% block body %}
+    <h1>Topping index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Price</th>
+                <th>IsVegan</th>
+                <th>IsVeggy</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for topping in toppings %}
+            <tr>
+                <td>{{ topping.id }}</td>
+                <td>{{ topping.name }}</td>
+                <td>{{ topping.price }}</td>
+                <td>{{ topping.isVegan ? 'Yes' : 'No' }}</td>
+                <td>{{ topping.isVeggy ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('app_topping_show', {'id': topping.id}) }}">show</a>
+                    <a href="{{ path('app_topping_edit', {'id': topping.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_topping_new') }}">Create new</a>
+{% endblock %}

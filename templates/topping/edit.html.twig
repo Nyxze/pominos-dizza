@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Topping{% endblock %}
+
+{% block body %}
+    <h1>Edit Topping</h1>
+
+    {{ include('topping/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_topping_index') }}">back to list</a>
+
+    {{ include('topping/_delete_form.html.twig') }}
+{% endblock %}

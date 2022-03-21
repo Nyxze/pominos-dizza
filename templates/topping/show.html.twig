@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Topping{% endblock %}
+
+{% block body %}
+    <h1>Topping</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ topping.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ topping.name }}</td>
+            </tr>
+            <tr>
+                <th>Price</th>
+                <td>{{ topping.price }}</td>
+            </tr>
+            <tr>
+                <th>IsVegan</th>
+                <td>{{ topping.isVegan ? 'Yes' : 'No' }}</td>
+            </tr>
+            <tr>
+                <th>IsVeggy</th>
+                <td>{{ topping.isVeggy ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_topping_index') }}">back to list</a>
+
+    <a href="{{ path('app_topping_edit', {'id': topping.id}) }}">edit</a>
+
+    {{ include('topping/_delete_form.html.twig') }}
+{% endblock %}
